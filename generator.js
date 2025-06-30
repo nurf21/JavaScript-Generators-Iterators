@@ -1,12 +1,13 @@
 // Pseudo-random generator
 // ==================================================
 
+const A = 16807,
+  M = 2147483647;
+
 function* pseudoRandom(seed) {
   let state = seed;
   while (true) {
-    // advance state
-    state = (state * 16807) % 2147483647;
-    // yield the new “random” integer
+    state = (state * A) % M;
     yield state;
   }
 }
